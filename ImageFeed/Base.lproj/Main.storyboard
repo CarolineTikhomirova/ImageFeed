@@ -65,10 +65,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1019607843" green="0.1058823529" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="1jc-0W-gYV" id="euS-rS-i6p"/>
+                                            <outlet property="dateLabel" destination="VmK-IG-L9L" id="tYM-WS-JKv"/>
+                                            <outlet property="likeButton" destination="Eh9-Rh-qgv" id="rd6-wl-V5i"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="sbn-XN-sHg"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ui0-eQ-wpE"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pIC-Ke-eAw"/>
                                 </connections>
                             </tableView>
@@ -83,7 +88,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Pdd-aN-8QV" id="tBh-fD-d5l"/>
+                        <outlet property="tableView" destination="Pdd-aN-8QV" id="dbk-0h-Nc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

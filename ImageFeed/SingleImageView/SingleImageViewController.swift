@@ -10,7 +10,7 @@ import UIKit
 class SingleImageViewController: UIViewController {
     var image: UIImage? {
         didSet {
-            guard isViewLoaded, let image = image else { return }
+            guard isViewLoaded, let image else { return }
             imageView.image = image
             imageView.frame.size = image.size
             rescaleAndCenterImageInScrollView(image: image)
@@ -26,7 +26,7 @@ class SingleImageViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func didTapShareButton(_ sender: Any) {
-        guard let image = image else { return }
+        guard let image else { return }
         
         let shareController = UIActivityViewController(
             activityItems: [image],
@@ -43,7 +43,7 @@ class SingleImageViewController: UIViewController {
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 1.25
         
-        if let image = image {
+        if let image {
             imageView.image = image
             imageView.frame.size = image.size
             rescaleAndCenterImageInScrollView(image: image)
@@ -79,9 +79,7 @@ class SingleImageViewController: UIViewController {
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageView
-    }
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? { imageView }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         centerImage()

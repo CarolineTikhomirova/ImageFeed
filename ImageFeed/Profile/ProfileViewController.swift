@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile_image")
+        imageView.image = UIImage(resource: .profile)
         imageView.layer.cornerRadius = 35
         imageView.clipsToBounds = true
         return imageView
@@ -40,10 +40,10 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
-    private let logoutButton: UIButton = {
+    private lazy var logoutButton: UIButton = {
         let button = UIButton.systemButton(
-            with: UIImage(named: "logout_button") ?? UIImage(),
-            target: nil,
+            with: UIImage(resource: .logoutButton),
+            target: self,
             action: #selector(didTapLogoutButton)
         )
         button.tintColor = .red

@@ -8,7 +8,7 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    private let avatarImageView: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(resource: .profile)
         imageView.layer.cornerRadius = 35
@@ -16,7 +16,7 @@ final class ProfileViewController: UIViewController {
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Екатерина Новикова"
         label.textColor = .white
@@ -24,7 +24,7 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
-    private let loginNameLabel: UILabel = {
+    private lazy var loginNameLabel: UILabel = {
         let label = UILabel()
         label.text = "@ekaterina_nov"
         label.textColor = UIColor(red: 0.682, green: 0.686, blue: 0.706, alpha: 1)
@@ -32,7 +32,7 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Hello, world!"
         label.textColor = .white
@@ -53,11 +53,18 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
         [avatarImageView, nameLabel, loginNameLabel, descriptionLabel, logoutButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
-        
+    }
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
